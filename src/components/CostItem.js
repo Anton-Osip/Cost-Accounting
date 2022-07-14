@@ -1,7 +1,11 @@
 function CostItem() {
 	return (
 		<div>
-			<h2>Элемент расхода</h2>
+			<div>март 2021 12</div>
+			<div>
+				<div>Холодильник</div>
+				<div>$999.99</div>
+			</div>
 		</div>
 	)
 }
