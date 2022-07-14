@@ -3,19 +3,20 @@ import CostDate from './CostDate'
 import './CostItem.css'
 
 const CostItem = props => {
+	let description = props.description
 
-	const changeDescription = () => {
-		console.log('ghjk')
+	const changeDescriptionHandler = () => {
+		description = 'new Text'
 	}
-	
+
 	return (
 		<Card className='cost-item'>
 			<CostDate date={props.date} />
 			<div className='cost-item__description'>
-				<h2>{props.description}</h2>
+				<h2>{description}</h2>
 				<div className='cost-item__price'>${props.amount}</div>
 			</div>
-			<button onClick={changeDescription}>Изменить описание</button>
+			<button onClick={changeDescriptionHandler}>Изменить описание</button>
 		</Card>
 	)
 }
