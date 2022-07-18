@@ -2,39 +2,49 @@ import { useState } from 'react'
 import './CostForm.css'
 
 const CostForm = () => {
-	const [name, setName] = useState('')
-	const [amount, setAmount] = useState('')
-	const [date, setDate] = useState('')
+	const [inputName, setInputName] = useState('')
+	const [inputAmount, setInputAmount] = useState('')
+	const [inputDate, setInputDate] = useState('')
 	// const [userInput, setUserInput] = useState({
 	// 	name: '',
 	// 	amount: '',
 	// 	date: '',
 	// })
 	const nameChangeHandler = event => {
-		setName(event.target.value)
+		setInputName(event.target.value)
 		// setUserInput(previousState => {
 		// 	return { ...previousState, name: event.target.value }
 		// })
 	}
 	const amountChangeHandler = event => {
-		setAmount(event.target.value)
+		setInputAmount(event.target.value)
 		// setUserInput(previousState => {
 		// 	return { ...previousState, amount: event.target.value }
 		// })
 	}
 	const dateChangeHandler = event => {
-		setDate(event.target.value)
+		setInputDate(event.target.value)
 		// setUserInput(previousState => {
 		// 	return { ...previousState, date: event.target.value }
 		// })
 	}
 
+	const submitHandler = event => {
+		event.preventDefault()
+		const costDate = {
+			name: inputName,
+			amount: inputAmount,
+			date: new Date(inputDate),
+		}
+		console.log(costDate)
+	}
+
 	return (
-		<form>
+		<form onSubmit={submitHandler}>
 			<div className='new-cost__controls'>
 				<div className='new-cost__control'>
 					<label>Название</label>
-					<input type='text' onChange={nameChangeHandler} value={name} />
+					<input type='text' onChange={nameChangeHandler} value={inputName} />
 				</div>
 				<div className='new-cost__control'>
 					<label>Сумма</label>
@@ -43,7 +53,7 @@ const CostForm = () => {
 						min='0.01'
 						step='0.01'
 						onChange={amountChangeHandler}
-						value={amount}
+						value={inputAmount}
 					/>
 				</div>
 				<div className='new-cost__control'>
@@ -53,7 +63,7 @@ const CostForm = () => {
 						min='2019-01-01'
 						max='2022-12-31'
 						onChange={dateChangeHandler}
-						value={date}
+						value={inputDate}
 					/>
 				</div>
 				<div className='new-cost__actions'>
