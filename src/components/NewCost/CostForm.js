@@ -37,6 +37,10 @@ const CostForm = () => {
 			date: new Date(inputDate),
 		}
 		console.log(costDate)
+
+		setInputName('')
+		setInputAmount('')
+		setInputDate('')
 	}
 
 	return (
