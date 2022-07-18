@@ -43,7 +43,7 @@ const CostForm = props => {
 		setInputDate('')
 	}
 
-	return props.showForm ? (
+	return (
 		<form onSubmit={submitHandler}>
 			<div className='new-cost__controls'>
 				<div className='new-cost__control'>
@@ -72,16 +72,12 @@ const CostForm = props => {
 				</div>
 				<div className='new-cost__actions'>
 					<button type='submit'>Добавить расход</button>
-					<button type='button' onClick={props.onUnShowForm}>
+					<button type='button' onClick={props.onCanselCostHandler}>
 						Отмена
 					</button>
 				</div>
 			</div>
 		</form>
-	) : (
-		<button type='button' onClick={props.onShowForm}>
-			Добавить новый расход
-		</button>
 	)
 }
 
